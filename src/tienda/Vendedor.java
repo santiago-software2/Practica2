@@ -14,5 +14,18 @@ public class Vendedor {
     public int id;
     public String cargo;
     public int telefono;
+
+    public Vendedor() {
+    }
+
+    public Vendedor(String nombre, String apellido, int id, String cargo, int telefono) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.id = id;
+        this.cargo = cargo;
+        this.telefono = telefono;
+    }
+    
+    
 }
 

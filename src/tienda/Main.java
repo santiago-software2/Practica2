@@ -56,6 +56,13 @@ public class Main {
         
         System.out.println("Cliente registrado: " + cliente5.nombre + " " + cliente5.apellido);
         
+        Cliente cliente6 = new Cliente("Mario","Ramirez",105,22,986547644);
+        Cliente cliente7 = new Cliente("Ronaldinho","Gaucho",106,25,948576231);
+        Cliente cliente8 = new Cliente("Neymar","Junior",107,34,927474561);
+        Cliente cliente9 = new Cliente("Vinicus","Junior",26,108,974827412);
+        Cliente cliente10 = new Cliente("Erling","Haaland",25,109,948138432);
+        
+        System.out.println("Total de clientes registrados: " + Cliente.obtenerTotalClientes());
         
         Producto producto1 = new Producto();
         producto1.nombre = "Jugo de naranja";
@@ -102,6 +109,25 @@ public class Main {
         
         System.out.println("Producto: " + producto5.nombre + " | Marca: " + producto5.marca + " | Código: " + producto5.codigo);
         
+        Producto producto6 = new Producto ("Gomitas","De sabores artificiales",11,"Dulces","Colombina");
+        Producto producto7 = new Producto ("Yeyis","Yogurts de sabores",12,"Lacteos","Vita");
+        Producto producto8 = new Producto ("Aceite","Aceite de oliva",13,"Grasas","La favorita");
+        Producto producto9 = new Producto ("Desodorante","Black and white",14,"Aseo","Nivea");
+        Producto producto10 = new Producto ("Pasta de dientes","Crema de dientes",15,"Aseo","Sensodyne");
+        
+        // "try" significa "intenta hacer esto"
+        try {
+            // Intentamos crear un producto con código -5 (inválido)
+            // Esto va a disparar el throw que está en el constructor de Producto
+            Producto producto11 = new Producto("Galletas", "Galletas de chocolate", -5, "Snacks", "Oreo");
+            // Esta línea NUNCA se ejecuta si el constructor lanzó una excepción
+            System.out.println("Producto creado: " + producto11.nombre);
+            } 
+        //"catch" significa "atrapa el error"
+        catch (IllegalArgumentException e) {
+            // e.getMessage() devuelve el texto que escribimos en el throw
+            System.out.println("Error al crear producto: " + e.getMessage());
+        }
         
         Proveedor prov1 = new Proveedor();
         prov1.nombre = "Cocacola";
@@ -109,7 +135,7 @@ public class Main {
         prov1.contacto = 981638221;
         prov1.ciudad = "Imbabura";
         prov1.categoria = "Bebidas";
-        
+       
         System.out.println("Proveedor: " + prov1.nombre + " - " + prov1.ciudad);
         
         Proveedor prov2 = new Proveedor();
@@ -148,6 +174,33 @@ public class Main {
         
         System.out.println("Proveedor: " + prov5.nombre + " - " + prov5.ciudad);
         
+        Proveedor prov6 = new Proveedor("Pepsi",6000,984739173,"Sucumbios","Gaseosas");
+        Proveedor prov7 = new Proveedor("Panini",7000,972847533,"Manta","Cromos");
+        Proveedor prov8 = new Proveedor("LEGO",8000,984816482,"Loja","Juguetes");
+        Proveedor prov9 = new Proveedor("MARVEL",9000,993857181,"Latacunga","Peliculas");
+        Proveedor prov10 = new Proveedor("Pringles",10000,918382638,"Bolivar","Frituras");
+        
+        try {
+            // Intentamos crear un proveedor con nombre inválido (tiene números)
+            Proveedor prov11 = new Proveedor("Ponny malta 123", 500, 981638221, "Quito", "Bebidas");
+            // Esta línea no se ejecuta si se lanzó una excepción
+            System.out.println("Proveedor creado: " + prov11.nombre);
+            } 
+        // Atrapa el error de nombre con números
+        catch (NumberFormatException e) {   
+            System.out.println("Error en el nombre: " + e.getMessage());
+        }
+        
+        try {
+            // Intentamos crear un proveedor con contacto de solo 5 dígitos (inválido)
+            Proveedor prov12 = new Proveedor("Nestlé", 501, 12345, "Guayaquil", "Lacteos");
+            // Esta línea no se ejecuta si se lanzó una excepción
+            System.out.println("Proveedor creado: " + prov12.nombre);
+            }
+        // Atrapa el error del contacto inválido
+        catch (ArithmeticException e) {
+        System.out.println("Error en el contacto: " + e.getMessage());
+        }
         
         Vendedor vendedor1 = new Vendedor();
         vendedor1.nombre = "Ricardo";
@@ -155,7 +208,7 @@ public class Main {
         vendedor1.id = 1;
         vendedor1.cargo = "Cajero";
         vendedor1.telefono = 983648164;
-        
+       
         System.out.println("Vendedor: " + vendedor1.nombre + " " + vendedor1.apellido);
         
         Vendedor vendedor2 = new Vendedor();
@@ -194,6 +247,11 @@ public class Main {
         
         System.out.println("Vendedor: " + vendedor5.nombre + " " + vendedor5.apellido);
         
+        Vendedor vendedor6 = new Vendedor("Federico","Valverde",6,"Televentas",938492821);
+        Vendedor vendedor7 = new Vendedor("Arda","Guller",7,"Manager",923728472);
+        Vendedor vendedor8 = new Vendedor("Alvaro","Carreras",8,"Gerente",918273263);
+        Vendedor vendedor9 = new Vendedor("Ferland","Mendy",9,"Asesor de ventas",959373927);
+        Vendedor vendedor10 = new Vendedor("Gonzalo","Garcia",10,"Marketing",983937283);
     }
 }
 
